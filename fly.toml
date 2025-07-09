@@ -1,0 +1,17 @@
+app = 'ytbtonextcloud'
+primary_region = 'cdg'
+
+[build]
+
+[http_service]
+  internal_port = 5000  # your app listens on port 5000
+  force_https = true
+  auto_stop_machines = 'true'   # allow idle VMs to stop
+  auto_start_machines = true    # start on request
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 256               # use 256MB RAM to stay within free tier
